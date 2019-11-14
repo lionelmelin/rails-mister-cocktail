@@ -1,0 +1,10 @@
+<div class="container">
+  <%= image_tag "cocktail.jpeg", alt: "cocktail", class: "w-100vh" %>
+  <h1>Cocktail list</h1>
+
+  <% @cocktails.each do |cocktail|%>
+  <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+  <% end %>
+
+  <%= link_to 'new', new_cocktail_path %>
+</div>
