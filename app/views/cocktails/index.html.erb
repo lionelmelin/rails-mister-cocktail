@@ -1,10 +1,25 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.squarespace-cdn.com/content/v1/53162615e4b08f2413caa7c2/1433114543363-JZNJMLXI1Q29P6X9TQJ4/ke17ZwdGBToddI8pDm48kM92qaEInPRgHHeE4slqO5tZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIX_nEH5US_0xjPAh8JvCafs-2nCBXRWq9ujg-4y6lu-UKMshLAGzx4R3EDFOm1kBS/hemingway-bar-prague?format=750w);">
+  <div class="container">
+    <h1>Cocktail list</h1>
+    <p><span id="banner-typed-text"></span></p>
+  </div>
+</div>
+
+
 <div class="container">
-  <%= image_tag "cocktail.jpeg", alt: "cocktail", class: "w-100vh" %>
-  <h1>Cocktail list</h1>
 
   <% @cocktails.each do |cocktail|%>
-  <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
-  <% end %>
+    <%  url = "https://source.unsplash.com/featured/400x200/?{cocktail},{#{cocktail.name}}" %>
+    <div class="card" style="width: 18rem;">
+      <%= image_tag(url, alt: "Card image cap", class: 'card-img-top h-20') %>
+      <div class="card-body">
+        <h5 class="card-title"><%= cocktail.name %></h5>
+        <p class="card-text">Some more details.</p>
+        <%= link_to 'details', cocktail_path(cocktail), class: "btn btn-primary" %>
+      </div>
+    </div>
 
-  <%= link_to 'new', new_cocktail_path %>
+
+
+  <% end %>
 </div>
