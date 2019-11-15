@@ -19,6 +19,14 @@
       </div>
     </div>
 
+    <div class="card" style="width: 18rem;">
+      <%= cl_image_tag(cocktail.photo.key, height: 300, width: 400, crop: :fill) if cocktail.photo.attached? %>
+      <div class="card-body">
+        <h5 class="card-title"><%= cocktail.name %></h5>
+        <p class="card-text">Some more details.</p>
+        <%= link_to 'details', cocktail_path(cocktail), class: "btn btn-primary" %>
+      </div>
+    </div>
 
 
   <% end %>
